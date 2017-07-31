@@ -13,7 +13,7 @@
   ],
   "author": "nicolsc <nicolas.lesconnec@gmail.com>",
   "license": "ISC",
-  "dependencies": {}
+  "dependencies": {},
   "repository":{
     "type":"git",
     "url":"git@github.com:sigfox/npm-sensit.git"
