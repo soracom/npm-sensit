@@ -1,0 +1,21 @@
+{
+  "name": "sensit-sigfox",
+  "version": "0.0.1",
+  "description": "Parse data sent by a [Sensit](http://sensit.io) device",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "sensit",
+    "sigfox",
+    "iot"
+  ],
+  "author": "nicolsc <nicolas.lesconnec@gmail.com>",
+  "license": "ISC",
+  "dependencies": {}
+  "repository":{
+    "type":"git",
+    "url":"git@github.com:sigfox/npm-sensit.git"
+  }
+}
