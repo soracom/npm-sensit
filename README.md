@@ -5,7 +5,7 @@ Very simple npm module to parse messages sent by a [Sensit](http://sensit.io) de
 ## Install
 
 ```
-$ npm install --save sigfox-sensit
+$ npm install --save sensit-sigfox
 ```
 
 ## Use
