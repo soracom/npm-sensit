@@ -24,3 +24,10 @@ The `parse(hexFrame)` will gives back an object with the following attributes : 
 
 * Need to publish the Sensit frames documentation here
 * All modes are not properly parsed yet
+
+
+### Test
+
+```
+npm test
+````

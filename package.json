@@ -4,7 +4,7 @@
   "description": "Parse data sent by a [Sensit](http://sensit.io) device",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "keywords": [
     "sensit",
@@ -14,8 +14,11 @@
   "author": "nicolsc <nicolas.lesconnec@gmail.com>",
   "license": "ISC",
   "dependencies": {},
-  "repository":{
-    "type":"git",
-    "url":"git@github.com:sigfox/npm-sensit.git"
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:sigfox/npm-sensit.git"
+  },
+  "devDependencies": {
+    "jest": "^21.0.1"
   }
 }
