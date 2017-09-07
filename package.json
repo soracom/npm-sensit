@@ -16,7 +16,7 @@
   "dependencies": {},
   "repository": {
     "type": "git",
-    "url": "git@github.com:sigfox/npm-sensit.git"
+    "url": "git@github.com:soracom/npm-sensit.git"
   },
   "devDependencies": {
     "jest": "^21.0.1"
