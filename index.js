@@ -1,13 +1,13 @@
 /*
  * Sens'it uplink frame formats:
  * Ref. https://github.com/sigfox/BCX17-resources/blob/master/Sensit-uplink-frames.md
- * 
+ *
  * Common
- * 
+ *
  * Byte Offset \     bit 7   |   bit 6   |   bit 5   |   bit 4   |   bit 3   |   bit 2   |   bit 1   |   bit 0   |
  *   0         | Battery MSB | Type                  | Timeframe             | Mode                              |
  *   1         | Temperature MSB                                     | Battery LSB                               |
- * 
+ *
  * Mode
  *   0: Button
  *   1: Temperature + Humidity
@@ -15,7 +15,7 @@
  *   3: Door
  *   4: Move
  *   5: Reed switch
- * 
+ *
  * Timeframe
  *   0: 10 mins
  *   1: 1 hour
@@ -36,42 +36,42 @@
  *   Sent along each frame (not only in temp mode)
  *     Value in °C : ({temperature MSB} * 6.4) - 20
  *     Value in °F : ((({temperature MSB} * 6.4) - 20) * 1.8) - 30
- * 
- * 
+ *
+ *
  * Button mode:
- * 
+ *
  * Byte Offset \     bit 7   |       bit 6       |   bit 5   |   bit 4   |   bit 3   |   bit 2   |   bit 1   |   bit 0   |
  *   2         | Unused      | Reed switch state | Tempeerature LSB                                                      |
  *   3         | Major version                                           | Minor version                                 |
- * 
- * 
+ *
+ *
  * Temperature + Humidity mode:
- * 
+ *
  * Byte Offset \     bit 7   |       bit 6       |   bit 5   |   bit 4   |   bit 3   |   bit 2   |   bit 1   |   bit 0   |
  *   2         | Unused      | Reed switch state | Tempeerature LSB                                                      |
  *   3         | Humidity (%) = value * 0.5                                                                              |
- * 
- * 
+ *
+ *
  * Light mode:
- * 
+ *
  * Byte Offset \     bit 7   |   bit 6   |   bit 5   |   bit 4   |   bit 3   |   bit 2   |   bit 1   |   bit 0   |
  *   2         | Multiplier              | Value                                                                 |
  *   3         | Number of alerts                                                                                |
- * 
- * 
+ *
+ *
  * Door mode:
- * 
+ *
  * Byte Offset \     bit 7   |   bit 6   |   bit 5   |   bit 4   |   bit 3   |   bit 2   |   bit 1   |   bit 0   |
  *   2         | Unused (reserved for configuration values)                                                      |
  *   3         | Number of alerts                                                                                |
- * 
- * 
+ *
+ *
  * Move mode:
- * 
+ *
  * Byte Offset \     bit 7   |       bit 6       |   bit 5   |   bit 4   |   bit 3   |   bit 2   |   bit 1   |   bit 0   |
  *   2         | Unused      | Reed switch state | Tempeerature LSB                                                      |
  *   3         | Number of alerts                                                                                        |
- * 
+ *
  */
 
 (function() {
