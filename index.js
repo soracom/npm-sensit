@@ -226,8 +226,6 @@
         return 64;
       case 3:
         return 2048;
-      default:
-        return -1;
     }
   }
 
