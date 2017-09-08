@@ -19,6 +19,25 @@ test('parse temperature + humidity mode - blank dummy data', () => {
   });
 });
 
+test('parse temperature + humidity mode - minimum temp data', () => {
+  // 0 00 00 001
+  expect(sensit.parse('010000')).toEqual({
+    battery: null,
+    humidity: null,
+    mode: 1,
+    modeText: 'Temperature + Humidity',
+    timeframe: 0,
+    timeframeText: '10 mins',
+    tempCLowPrecision: null,
+    tempC: -20,
+    tempFLowPrecision: 32,
+    tempF: 32,
+    reedSwitchState: null,
+    type: 0,
+    typeText: "Regular, no alert",
+  });
+});
+
 test('parse example 1', () => {
   expect(sensit.parse('E9671854')).toEqual({
     mode: 1,

@@ -1,6 +1,6 @@
 {
   "name": "sensit-sigfox",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Parse data sent by a [Sensit](http://sensit.io) device",
   "main": "index.js",
   "scripts": {
