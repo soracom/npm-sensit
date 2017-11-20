@@ -41,14 +41,14 @@
  * Button mode:
  *
  * Byte Offset \     bit 7   |       bit 6       |   bit 5   |   bit 4   |   bit 3   |   bit 2   |   bit 1   |   bit 0   |
- *   2         | Unused      | Reed switch state | Tempeerature LSB                                                      |
+ *   2         | Unused      | Reed switch state | Temperature LSB                                                       |
  *   3         | Major version                                           | Minor version                                 |
  *
  *
  * Temperature + Humidity mode:
  *
  * Byte Offset \     bit 7   |       bit 6       |   bit 5   |   bit 4   |   bit 3   |   bit 2   |   bit 1   |   bit 0   |
- *   2         | Unused      | Reed switch state | Tempeerature LSB                                                      |
+ *   2         | Unused      | Reed switch state | Temperature LSB                                                       |
  *   3         | Humidity (%) = value * 0.5                                                                              |
  *
  *
@@ -69,7 +69,7 @@
  * Move mode:
  *
  * Byte Offset \     bit 7   |       bit 6       |   bit 5   |   bit 4   |   bit 3   |   bit 2   |   bit 1   |   bit 0   |
- *   2         | Unused      | Reed switch state | Tempeerature LSB                                                      |
+ *   2         | Unused      | Reed switch state | Temperature LSB                                                       |
  *   3         | Number of alerts                                                                                        |
  *
  */
