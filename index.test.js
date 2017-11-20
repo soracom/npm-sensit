@@ -140,6 +140,22 @@ test('parse light mode - real data 2', () => {
   });
 });
 
+test('parse light mode - bug regression 1', () => {
+  expect(sensit.parse('c26ddf02')).toEqual({
+    mode: 2,
+    modeText: 'Light',
+    timeframe: 0,
+    timeframeText: '10 mins',
+    type: 2,
+    typeText: 'Alert',
+    battery: 4.15,
+    tempCLowPrecision: 23,
+    tempFLowPrecision: 73.4,
+    lux: 317.44,
+    numAlerts: 2,
+  });
+});
+
 test('parse door mode - blank dummy data', () => {
   // 0 00 11 011
   expect(sensit.parse('1b')).toEqual({

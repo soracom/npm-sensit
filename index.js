@@ -223,7 +223,7 @@
       case 2:
         return 64;
       case 3:
-        return 2048;
+        return 1024;
     }
   }
 
