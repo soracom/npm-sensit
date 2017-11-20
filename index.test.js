@@ -22,19 +22,38 @@ test('parse temperature + humidity mode - blank dummy data', () => {
 test('parse temperature + humidity mode - minimum temp data', () => {
   // 0 00 00 001
   expect(sensit.parse('010000')).toEqual({
-    battery: null,
+    battery: 2.7,
     humidity: null,
     mode: 1,
     modeText: 'Temperature + Humidity',
     timeframe: 0,
     timeframeText: '10 mins',
-    tempCLowPrecision: null,
-    tempC: -20,
-    tempFLowPrecision: 32,
-    tempF: 32,
-    reedSwitchState: null,
+    tempCLowPrecision: -25,
+    tempC: -25,
+    tempFLowPrecision: -13,
+    tempF: -13,
+    reedSwitchState: 0,
     type: 0,
     typeText: "Regular, no alert",
+  });
+});
+
+test('parse temperature + humidity mode - bug regression 1', () => {
+  // 0 00 00 001
+  expect(sensit.parse('e96d2234')).toEqual({
+    battery: 4.15,
+    humidity: 26.0,
+    mode: 1,
+    modeText: 'Temperature + Humidity',
+    timeframe: 1,
+    timeframeText: '1 hour',
+    tempCLowPrecision: 23,
+    tempC: 27.25,
+    tempFLowPrecision: 73.4,
+    tempF: 81.05000000000001,
+    reedSwitchState: 0,
+    type: 3,
+    typeText: "New mode",
   });
 });
 
@@ -147,9 +166,9 @@ test('parse move mode - real data 1', () => {
     typeText: 'Alert',
     battery: 4.15,
     tempCLowPrecision: 23,
-    tempC: 24.125,
+    tempC: 28.125,
     tempFLowPrecision: 73.4,
-    tempF: 75.42500000000001,
+    tempF: 82.625,
     reedSwitchState: 0,
     numAlerts: 2,
   });
@@ -165,9 +184,9 @@ test('parse reed switch mode - real data 1', () => {
     typeText: 'New mode',
     battery: 4.15,
     tempCLowPrecision: 23,
-    tempC: 24.75,
+    tempC: 28.75,
     tempFLowPrecision: 73.4,
-    tempF: 76.55000000000001,
+    tempF: 83.75,
     reedSwitchState: 0,
     numAlerts: 0,
   });
@@ -183,9 +202,9 @@ test('parse reed switch mode - real data 2', () => {
     typeText: 'Alert',
     battery: 4.15,
     tempCLowPrecision: 23,
-    tempC: 24.875,
+    tempC: 28.875,
     tempFLowPrecision: 73.4,
-    tempF: 76.775,
+    tempF: 83.975,
     reedSwitchState: 1,
     numAlerts: 1,
   });
@@ -221,9 +240,9 @@ test('parse button mode - real data 1', () => {
     typeText: 'New mode',
     battery: 4.15,
     tempCLowPrecision: 23,
-    tempC: 25,
+    tempC: 29,
     tempFLowPrecision: 73.4,
-    tempF: 77,
+    tempF: 84.2,
     reedSwitchState: 0,
     majorVersion: 2,
     minorVersion: 4,

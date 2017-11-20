@@ -6,7 +6,7 @@
  *
  * Byte Offset \     bit 7   |   bit 6   |   bit 5   |   bit 4   |   bit 3   |   bit 2   |   bit 1   |   bit 0   |
  *   0         | Battery MSB | Type                  | Timeframe             | Mode                              |
- *   1         | Temperature MSB                                     | Battery LSB                               |
+ *   1         | Temperature MSB                                 | Battery LSB                                   |
  *
  * Mode
  *   0: Button
@@ -158,8 +158,7 @@
     }
 
     var bMSB = (bytes[0] & 0x80) >> 7;
-    //var bLSB = (bytes[1] & 0xF0) >> 4;
-    var bLSB = bytes[1] & 0xF;
+    var bLSB = bytes[1] & 0x0f;
 
     return (((bMSB * 16) + bLSB) + 54) / 20.0;
   }
@@ -169,7 +168,6 @@
       return null;
     }
 
-    //return bytes[1] & 0x0F;
     return (bytes[1] & 0xf0) >> 4;
   }
 
@@ -178,7 +176,7 @@
       return null;
     }
 
-    return bytes[2] & 0x1F;
+    return bytes[2] & 0x3f;
   }
 
   function getTempC(msb, lsb) {
