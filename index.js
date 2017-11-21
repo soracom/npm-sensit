@@ -32,11 +32,15 @@
  *   Use the following formula to get the value in V (between 2.7 & 4.25V)
  *     ((({battery MSB} * 16) + {battery LSB}) + 54 / 20)
  *
- * Temperature (MSB)
+ * Temperature (MSB only - low precision)
  *   Sent along each frame (not only in temp mode)
- *     Value in °C : ({temperature MSB} * 6.4) - 20
- *     Value in °F : ((({temperature MSB} * 6.4) - 20) * 1.8) - 30
+ *     Value in °C : (({temperature MSB} * 64) - 200) / 8.0
+ *     Value in °F : (((({temperature MSB} * 64) - 200) / 8.0) * 1.8) + 32
  *
+ * Temperature (MSB + LSB)
+ *     Value in °C : (({temperature MSB} * 64) + {temperature LSB} - 200) / 8.0
+ *     Value in °F : (((({temperature MSB} * 64) + {temperature LSB} - 200) / 8.0) * 1.8) + 32
+ *  
  *
  * Button mode:
  *
@@ -72,6 +76,12 @@
  *   2         | Unused      | Reed switch state | Temperature LSB                                                       |
  *   3         | Number of alerts                                                                                        |
  *
+ *
+ * Reed switch mode:
+ *
+ * Byte Offset \     bit 7   |       bit 6       |   bit 5   |   bit 4   |   bit 3   |   bit 2   |   bit 1   |   bit 0   |
+ *   2         | Unused      | Reed switch state | Temperature LSB                                                       |
+ *   3         | Number of alerts                                                                                        |
  */
 
 (function() {

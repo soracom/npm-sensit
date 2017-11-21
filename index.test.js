@@ -265,6 +265,40 @@ test('parse button mode - real data 1', () => {
   });
 });
 
+test('random value - somke test 1', () => {
+  expect(sensit.parse('55555555')).toEqual({
+    mode: 5,
+    modeText: 'Reed switch',
+    timeframe: 2,
+    timeframeText: '6 hours',
+    type: 2,
+    typeText: 'Alert',
+    battery: 2.95,
+    tempCLowPrecision: 15.0,
+    tempC: 17.625,
+    tempFLowPrecision: 59.0,
+    tempF: 63.725,
+    reedSwitchState: 1,
+    numAlerts: 85,
+  });
+});
+
+test('random value - somke test 2', () => {
+  expect(sensit.parse('aaaaaaaa')).toEqual({
+    mode: 2,
+    modeText: 'Light',
+    timeframe: 1,
+    timeframeText: '1 hour',
+    type: 1,
+    typeText: 'Button call',
+    battery: 4.0,
+    tempCLowPrecision: 55.0,
+    tempFLowPrecision: 131.0,
+    lux: 26.88,
+    numAlerts: 170,
+  });
+});
+
 test('parse invalid blank data', () => {
   expect(sensit.parse('')).toEqual({
     battery: null,
