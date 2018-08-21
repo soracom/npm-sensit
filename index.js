@@ -276,7 +276,9 @@
   function parseTemperatureMode(bytes, obj) {
     getHighPrecisionTemperatures(bytes, obj);
     obj.reedSwitchState = getReedSwitchState(bytes)
-    obj.humidity = getHumidity(bytes);
+    if (obj.type != 1) { // do not contain humidity if double clicked (type == 1), because it's always the fixed value '18'
+      obj.humidity = getHumidity(bytes);
+    }
     return obj;
   }
 

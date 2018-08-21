@@ -57,6 +57,24 @@ test('parse temperature + humidity mode - bug regression 1', () => {
   });
 });
 
+test('parse temperature + humidity mode - drop humidity when double clicked', () => {
+  // 0 00 00 001
+  expect(sensit.parse('a96d2234')).toEqual({
+    battery: 4.15,
+    mode: 1,
+    modeText: 'Temperature + Humidity',
+    timeframe: 1,
+    timeframeText: '1 hour',
+    tempCLowPrecision: 23,
+    tempC: 27.25,
+    tempFLowPrecision: 73.4,
+    tempF: 81.05000000000001,
+    reedSwitchState: 0,
+    type: 1, // type == 1 means 'double clicked'
+    typeText: "Button call",
+  });
+});
+
 test('parse example 1', () => {
   expect(sensit.parse('E9671854')).toEqual({
     mode: 1,
